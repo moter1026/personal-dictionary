@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/new word.css">
+    <link rel="stylesheet" href="style/all word.css">
+    <link rel="stylesheet" href="style/media.css">
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <title>Personal Dictionary</title>
+</head>
+<body>
+    <div id="background_illustrations" class="pointer_ivents_none select_a_text_none">
+        <img src="img/library.svg" class="transparent_illustration transition_04s" id="illustration_library">
+        <img src="img/blogger.svg" class="transparent_illustration transition_04s" id="illustration_blogger">
+        <img src="img/girl with pencil.svg" class="transparent_illustration transition_04s" id="illustration_girl_with_pencil">
+        <img src="img/sending love.svg" class="transparent_illustration transition_04s" id="illustration_sending_love">
+        <img src="img/work on yourself.svg" class="transparent_illustration transition_04s" id="illustration_work_on_yourself">
+    </div>
+    <div id="dark_background">
+        <section class="light_window" id="new_word-window">
+            <p id="new_word-heading" class="medium_hedings">Новое слово</p>
+            <a href="#" class="close_window" id="new_word-close"><img src="img/cansel.svg" alt="Закрыть"></a>
+            <h3 id="new_word" class="word_style">word</h3>
+            <form action="" id="new_word-form" class="form_in_window">
+                <input type="text" id="new_word-form-input_text" class="input_type_text" placeholder="Введите значение слова">
+                <a href="#" id="new_word-form-add-a-value"><img src="img/ok.svg" alt="Добавить значение"></a>
+            </form>
+            <p id="new_word-meanings_of_the_word">Значения слова:</p>
+            <div class="flex_space_between">
+                <div class="word_list" id="new_word-word_list">
+                </div>
+                <div id="new_word-flex_space_between-block_for_button">
+                    <button id="new_word-ready">Готово</button>
+                </div>
+            </div>
+        </section>
+        <section class="light_window" id="all_word_window">
+            <p id="all_word-heading"class="medium_hedings">Поиск</p>
+            <form action="" id="all_word-form" >
+                <div class="form_in_window" id="form_in_all_word_window">
+                    <input type="text" id="all_word-form-input_text" class="input_type_text" placeholder="Какое слово вы хотите найти">
+                    <a href="#" id="all_word-form-search-a-value"><img src="img/search icon.svg" alt="Добавить значение"></a>
+                </div>
+                <a href="" class="variant_of_search variant_of_search_checked" id="variant_of_search-from_Russian">русский - английский</a>
+                <a href="" class="variant_of_search" id="variant_of_search-from_Inglish">английский - русский</a>
+            </form>
+            <a href="#" class="close_window" id="all_word-close"><img src="img/cansel.svg" alt="Закрыть"></a>
+            <div id="all_word-main_searching_content_flex">
+                <h3 class="word_style">word</h3>
+                <div class="word_list" id="all_word-word_list"></div>
+            </div>
+        </section>
+
+    </div>
+    <p id="heading" class="transition_04s select_a_text_none pointer_ivents_none">Your personal dictionary</p>
+    <a href="./sign Up, register.html">
+        <svg id="personal_account_link" class="absolute " viewBox="0 0 55 55">
+            <defs>
+                <path d="M0 0L55 0L55 55L0 55L0 0Z" id="path_1" />
+                <clipPath id="mask_1">
+                <use xlink:href="#path_1" />
+                </clipPath>
+            </defs>
+            <g id="Contacts-icon">
+                <path d="M0 0L55 0L55 55L0 55L0 0Z" id="Background" fill="none" fill-rule="evenodd" stroke="none" />
+                <g clip-path="url(#mask_1)">
+                <path d="M30.7392 33.3008C30.4004 33.1934 28.2767
+                        32.2348 29.6071 28.1941L29.5906 28.1941C33.0529 
+                        24.6327 35.6971 18.8897 35.6971 13.2377C35.6971 
+                        4.55304 29.9211 0 23.2031 0C16.4851 0 10.7422 4.55304 
+                        10.7422 13.2377C10.7422 18.9145 13.3699 24.674 16.857 
+                        28.2354C18.2121 31.7969 15.7828 33.119 15.2787 33.3008C8.2467 
+                        35.8459 0 40.4815 0 45.0593C0 46.2906 0 45.5469 0 46.7781C0 
+                        53.0086 12.0808 54.4298 23.2692 54.4298C34.4742 54.4298 46.4063 
+                        53.0086 46.4063 46.7781C46.4063 45.5469 46.4063 46.2906 46.4063 
+                        45.0593C46.4063 40.3493 38.1182 35.7467 30.7392 33.3008L30.7392 
+                        33.3008Z" transform="translate(4.296875 0.33052826)" id="Shape" 
+                         fill-rule="evenodd" stroke="none" />
+                </g>
+            </g>
+        </svg>
+    </a>
+    <!-- <a href="">
+        <img src="img/personal account.svg" alt="Ваш аккаунт" >
+    </a> -->
+    <div class="absolute" id="block_for-form_of_adding_new_word">
+        <form action="" id="form_of_adding_new_word">
+            <input type="text" name="word" id="word" class="transition_04s select_a_text_none" placeholder="Введите новое слово">
+            <a id="button_plus" class="transition_04s select_a_text_none"><img src="img/plus.svg" alt="Добавить" ></a>
+        </form>
+    </div>
+    
+    <a href="#" id="all_words_link" class="transition_04s ">Посмотреть все слова</a>
+    <script src="js/main.js"></script>
+    <script src="js/all word.js"></script>
+    <script src="js/new word.js"></script>
+</body>
+</html>

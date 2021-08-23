@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="55px" height="55px" viewBox="0 0 55 55" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M0 0L55 0L55 55L0 55L0 0Z" id="path_1" />
+    <clipPath id="mask_1">
+      <use xlink:href="#path_1" />
+    </clipPath>
+  </defs>
+  <g id="Contacts-icon">
+    <path d="M0 0L55 0L55 55L0 55L0 0Z" id="Background" fill="none" fill-rule="evenodd" stroke="none" />
+    <g clip-path="url(#mask_1)">
+      <path d="M30.7392 33.3008C30.4004 33.1934 28.2767 32.2348 29.6071 28.1941L29.5906 28.1941C33.0529 24.6327 35.6971 18.8897 35.6971 13.2377C35.6971 4.55304 29.9211 0 23.2031 0C16.4851 0 10.7422 4.55304 10.7422 13.2377C10.7422 18.9145 13.3699 24.674 16.857 28.2354C18.2121 31.7969 15.7828 33.119 15.2787 33.3008C8.2467 35.8459 0 40.4815 0 45.0593C0 46.2906 0 45.5469 0 46.7781C0 53.0086 12.0808 54.4298 23.2692 54.4298C34.4742 54.4298 46.4063 53.0086 46.4063 46.7781C46.4063 45.5469 46.4063 46.2906 46.4063 45.0593C46.4063 40.3493 38.1182 35.7467 30.7392 33.3008L30.7392 33.3008Z" transform="translate(4.296875 0.33052826)" id="Shape" fill="#FFFFFF" fill-rule="evenodd" stroke="none" />
+    </g>
+  </g>
+</svg>

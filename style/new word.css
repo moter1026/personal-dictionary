@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+#new_word-window {
+    padding-bottom: 30px;
+}
+/* #new_word-heading {
+    font-family: "Montserrat";
+    font-weight: bolder;
+    font-size: 36px;
+    text-align: center;
+    margin-top: 20px;
+} */
+
+
+#new_word {
+    margin-top: 70px;
+}
+#new_word-form {
+    width: 700px;
+    height: 48px;
+    margin: 100px auto 0 auto;
+}
+#new_word-form > #new_word-form-input_text {
+    width: 642px;
+    height: 44px;
+    margin-right: 10px;
+}
+#new_word-form > #new_word-form-add-a-value > img {
+    width: 48px;
+}
+#new_word-meanings_of_the_word {
+    height: 40px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+    text-align: center;
+    margin: 17px 0;
+}
+
+#new_word-word_list {
+    width: 700px;
+    height: 420px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    /* margin: 0 auto; */
+    margin-left: calc(50% - 350px);
+}
+#new_word-flex_space_between-block_for_button {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+#new_word-ready {
+    position: relative;
+    display: block;
+    width: 280px;
+    height: 60px;
+    background: linear-gradient(135deg, #EAFF9C, #000000);
+    border: solid 1px #808080;
+    border-radius: 15px;
+    color: white;
+    font-weight: 500;
+    font-size: 27px;
+    text-align: center;
+    margin-right: 100px;
+    text-transform: uppercase;
+    transition: all .1s linear;
+}
+#new_word-ready:hover {
+    /* #808080 */
+    box-shadow: 6px 6px 0 #D4D4D4;
+    transform: translate3d(-3px, -3px, 2px);
+    cursor: pointer;
+}

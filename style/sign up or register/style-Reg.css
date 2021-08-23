@@ -1,0 +1,108 @@
+@charset "utf-8";
+
+body {
+    background-color: #F5F5F5;
+    position: relative;
+    padding: 50px 0 0 0 ;
+    box-sizing: border-box;
+}
+
+
+/* __________CLASSES__________ */
+    .none {
+        display: none;
+    }
+    .block {
+        display: block;
+    }
+    .flex {
+        display: flex;
+    }
+    .flex_in_form {
+        justify-content: space-between;
+    }
+    .flex_in_form:not(:first-child) {
+        margin-top: 15px;
+    }
+    .text_left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .heading_reg_sign_up_and_other {
+        width: 940px;
+
+        text-align: center;
+        margin: 0 auto;
+        font-size: 46px;
+        font-weight: bold;
+    }
+    .input_type_text {
+        width: 375px;
+        height: 44px;
+    }
+    
+/* __________--CLASSES__________ */
+
+
+/* __________IDS__________ */
+    #block_redactor_and_home {
+        position: absolute;
+        width: 350px;
+        top: 60px;
+        right: 50px;
+        display: flex;
+        justify-content:flex-end;
+    }
+    #redactor_link {
+        text-decoration: none;
+        color: black;
+        font-size: 23px;
+        font-weight: 400;
+        line-height: 28px;
+        text-align: center;
+        margin-right: 20px;
+    }
+    #form_of_sign_up, #form_of_registration {
+        width: 540px;
+        margin: calc(50vh - 101.5px - 107px) auto 0 auto;
+        position: relative;
+    }
+    #form_of_sign_up {
+        height: 203px;
+    }
+    #form_of_registration {
+        height: 321px;
+    }
+    form > input[type="submit"] {
+        display: block;
+        margin: 50px auto 0 auto;
+        width: 345px;
+        height: 50px;
+        border-radius: 8px;
+        background-color: #0a84ff;
+        border: 0;
+        color: white;
+        font-size: 17px;
+        font-weight: 400;
+        transition: .1s;
+    }
+    form > input[type="submit"]:hover {
+        cursor: pointer;
+        transform: translate3d(-2px, -1px, 1px);
+        box-shadow: 8px 8px 2px #9D9D9D;
+    }
+
+    #link_of_sign_up, #link_of_registration {
+        display: block;
+        width: 250px;
+        margin: 120px auto 0 auto;
+        text-align: center;
+        color: black;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 22px;
+        text-decoration: underline;
+        margin-bottom: 30px;
+    }
+/* __________--IDS__________ */

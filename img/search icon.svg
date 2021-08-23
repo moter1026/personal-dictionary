@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path d="M0 0L21 0L21 21L0 21L0 0Z" id="path_1" />
+    <clipPath id="mask_1">
+      <use xlink:href="#path_1" />
+    </clipPath>
+  </defs>
+  <g id="Search-icon" transform="translate(1 1)">
+    <path d="M0 0L21 0L21 21L0 21L0 0Z" id="Background" fill="none" fill-rule="evenodd" stroke="none" />
+    <g clip-path="url(#mask_1)">
+      <path d="M10.307 0C6.6929 0 3.74987 2.94544 3.74987 6.56251C3.74987 8.13392 4.30057 9.57459 5.22523 10.7051L0 15.9346L0.94259 16.8779L6.16782 11.6484C7.29739 12.5739 8.73689 13.125 10.307 13.125C13.9211 13.125 16.8642 10.1796 16.8642 6.56251C16.8642 2.94544 13.9211 0 10.307 0L10.307 0ZM10.307 1.31247C13.2116 1.31247 15.5527 3.65549 15.5527 6.56248C15.5527 9.46946 13.2116 11.8125 10.307 11.8125C7.4024 11.8125 5.06129 9.46946 5.06129 6.56248C5.06129 3.65549 7.4024 1.31247 10.307 1.31247L10.307 1.31247Z" transform="translate(2.1687164 1.9687195)" id="Shape" fill="#000000" fill-rule="evenodd" stroke="#000000" stroke-width="2" />
+    </g>
+  </g>
+</svg>

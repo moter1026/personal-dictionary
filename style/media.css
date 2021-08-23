@@ -1,0 +1,161 @@
+@charset "utf-8";
+@import url("./style.css");
+
+@media (max-width: 1750px) {
+    /* __________style.css__________ */
+        /* __________CLASSES__________ */
+        .light_window {
+            width: 1060px;
+        }
+        .close_window {
+            right: 10px;
+            top: 10px;
+        }
+        .close_window > img {
+            width: 30px;
+        }
+        .medium_hedings {
+            margin: 20px 0;
+        }
+        .word_style {
+            font-size: 36px;
+            font-weight: 700;   
+        }
+        /* __________BACKGROUND__________ */
+        #illustration_library {
+            width: 294px;
+            height: 294px;
+            left: 60px;
+        }
+        #illustration_blogger {
+            width: 355px;
+            height: 355px;
+            right: 75px;
+        }
+        #illustration_girl_with_pencil {
+            width: 365px;
+            height: 365px;
+            margin-left: 60px;
+        }
+        #illustration_sending_love {
+            width: 252px;
+            height: 252px;
+            margin: 20vh auto 0 auto;
+        }
+        #illustration_work_on_yourself {
+            width: 432px;
+            height: 324px;
+            right: 0;
+            bottom: 0;
+        }
+
+        /* __________MAIN CONTENT__________ */
+        #heading {       
+            font-size: 96px;
+        }
+        #personal_account_link {
+            width: 35px;
+            height: 35px;
+            right: 30px;
+            top: 30px;
+        }
+        #word {
+            margin-bottom: 40px;
+        }
+        #button_plus,
+        #button_plus img {
+            width: 76px;
+            padding-left: calc(50% - 38px);
+        }
+        #all_words_link {
+            width: 250px;
+            margin-left: calc(50vw - 125px);
+            font-size: 16px;
+        }
+    /* __________--style.css__________ */
+
+    /* __________new word.css__________ */
+    #new_word-window {
+            padding-bottom: 20px;
+        }
+        #new_word-heading {
+            font-size: 24px;
+            font-weight: 800;
+        }
+        
+        #new_word {
+                
+            margin: 30px 0;
+        }
+        #new_word-form {
+            width: 470px;
+            height: 32px;
+            margin: 75px auto 0 auto;
+        }
+        #new_word-form > #new_word-form-input_text {
+            width: 428px;
+            height: 30px;
+            padding-left: 15px;
+        }
+        #new_word-form > #new_word-form-add-a-value > img {
+            width: 32px;
+        }
+        #new_word-meanings_of_the_word {
+            height: 27px;
+            font-size: 18px;
+            line-height: 22px;
+            margin: 11px 0;
+        }
+        
+        #new_word-word_list {
+            width: 470px;
+            height: 280px;
+            margin-left: calc(50% - 235px);
+        }
+        #new_word-ready {
+            width: 170px;
+            height: 35px;
+            line-height: 22px;
+            font-size: 17px;
+            text-align: center;
+            border-radius: 8px;
+            margin-right: 50px;
+        }
+    /* __________--new word.css__________ */
+
+    /* __________all word.css__________ */
+        
+        /* __________CLASSES__________ */
+            .variant_of_search {
+                font-size: 14px;
+            }
+            .variant_of_search_checked {
+                font-size: 14px;
+            }
+        /* __________--CLASSES__________ */
+            #all_word-form {
+                width: 935px;
+                height: 74px;
+            }
+            #form_in_all_word_window {
+                margin-bottom: 10px;
+            }
+            #all_word-form-input_text {
+                width: 895px;
+                height: 30px;
+                margin-right: 20px;
+            }
+            #all_word-form-search-a-value {
+                width: 21px;
+                height: 21px;
+            }
+            #all_word-main_searching_content_flex {
+                width: 950px;
+                margin: 15px auto 40px auto;
+            }
+            #all_word-word_list {
+                height: 405px;
+            }
+    /* __________--all word.css__________ */
+
+}
