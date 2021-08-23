@@ -1,13 +1,20 @@
+
+
+
 const express = require("express");
 const app = express();
+const http = require("http").Server(app);
+
+
 
 const port = process.env.PORT || 5000;
+const DB_HOST = process.env.DB_HOST;
 
 app.get('/', (req, res) => {
-    res.end("../index.html");
+    res.sendFile("C:/Users/Mot1026/Desktop/All Matvey's/for WEB/Project for the school DICTIONARY/index.html");
 })
 
-app.listen(port, () => {
+http.listen(port, () => {
     console.log("We started the Server");
 })
 
