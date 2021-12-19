@@ -12,35 +12,36 @@
 <body>
     <!-- <a href="#" id="redactor_link">Редактировать профиль</a> -->
     <div id="block_redactor_and_home"><a href="./index.html"><img src="./img/home.svg" alt="Главная страница"></a></div>
+    <div id="error_register_or_login"></div>
     <div id="Sign_Up" class="block">
         <p class="heading_reg_sign_up_and_other">Авторизация</p>
-        <form action="" id="form_of_sign_up">
+        <form id="form_of_sign_up" name="form_of_sign_up" method="POST" action="login">
             <div class="flex flex_in_form">
-                <div class="text_left">Почта:</div>
-                <input type="text" class="input_type_text" placeholder="Ваша почта">
+                <div class="text_left">Никнейм:</div>
+                <input type="text" class="input_type_text" placeholder="Ваш никнейм" id="loginNick" name="loginNick">
             </div>
             <div class="flex flex_in_form">
                 <div class="text_left">Пароль:</div>
-                <input type="text" class="input_type_text" placeholder="Ваш пароль">
+                <input type="text" class="input_type_text" placeholder="Ваш пароль" id="loginPassword" name="loginPassword">
             </div>
-            <input type="submit" value="Войти">
+            <input type="submit" value="Войти" id="loginSubmit" name="loginSubmit">
         </form>
         <a href="#" id="link_of_registration">Регистрация</a>
     </div>
     <div id="Register" class="none">
         <p class="heading_reg_sign_up_and_other">Регистрация</p>
-        <form action="" id="form_of_registration">
+        <form action="register" id="form_of_registration" method="POST">
             <div class="flex flex_in_form">
                 <div class="text_left">Никнейм:</div>
-                <input type="text" class="input_type_text" placeholder="Придумайте никнейм">
+                <input type="text" class="input_type_text" placeholder="Придумайте никнейм" id="registrNick" name="registrNick">
             </div>
             <div class="flex flex_in_form">
                 <div class="text_left">Почта:</div>
-                <input type="text" class="input_type_text" placeholder="Введите свою почту">
+                <input type="text" class="input_type_text" placeholder="Введите свою почту" id="registrEmail" name="registrEmail">
             </div>
             <div class="flex flex_in_form">
                 <div class="text_left">Пароль:</div>
-                <input type="text" class="input_type_text" placeholder="Придумайте пароль">
+                <input type="text" class="input_type_text" placeholder="Придумайте пароль" id="registrPassword" name="registrPassword">
             </div>
             <div class="flex flex_in_form">
                 <div class="text_left">Повтор пароля:</div>
@@ -51,5 +52,9 @@
         <a href="#" id="link_of_sign_up">Авторизация</a>
     </div>
     <script src="./js/sign up or register/sign Up, register.js"></script>
+    <script>
+        let errorBlock = $("#error_register_or_login");
+        errorBlock.prepend(`<p>${ErrorText}</p>`)
+    </script>
 </body>
 </html>

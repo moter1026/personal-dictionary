@@ -1,0 +1,1 @@
+*протоколы HTTP и WebSocket(habr)   ---   https://habr.com/ru/company/ruvds/blog/424557/

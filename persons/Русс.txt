@@ -1,0 +1,1 @@
+{"nick":"Русс","Email":"Lenalyk@yandex.ru","password":"123"}

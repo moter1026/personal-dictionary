@@ -46,6 +46,10 @@ body {
 
 
 /* __________IDS__________ */
+    #error_register_or_login {
+        display: block;
+        color: red;
+    }
     #block_redactor_and_home {
         position: absolute;
         width: 350px;
