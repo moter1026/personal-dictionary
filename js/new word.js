@@ -75,6 +75,8 @@ function addValue(value) {
         addValueAndResetInput();
     });
 
+    
+
     buttonReadyAddNewWords.on("click", () => {
         try {
             // document.getElementById("new_word-word_list").childNodes

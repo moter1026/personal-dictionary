@@ -164,6 +164,7 @@ class authController {
     //     }
     // }
 
+
     async getWords (req, res) {
         try {
             // console.log(req.headers);
@@ -189,7 +190,7 @@ class authController {
                 if (x.word < y.word) {return -1;}
                 if (x.word > y.word) {return 1;}
                 return 0;
-            }
+            }   
 
             // function takeWordsFromBD(number, User) {
             //     let arrOfObjects = [];
