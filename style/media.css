@@ -84,7 +84,6 @@
         }
         
         #new_word {
-                
             margin: 30px 0;
         }
         #new_word-form {
@@ -97,8 +96,16 @@
             height: 30px;
             padding-left: 15px;
         }
-        #new_word-form > #new_word-form-add-a-value > img {
+        /* #new_word-form > #new_word-form-add-a-value > img {
             width: 32px;
+        } */
+        .con-tooltip {
+            width: 32px;
+            height: 32px;
+        }
+        .right_tooltip .tooltip {
+            top: -40%;
+            left: 125%;
         }
         #new_word-meanings_of_the_word {
             height: 27px;

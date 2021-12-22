@@ -7,7 +7,7 @@ arrObjectsOfWordsInBrowser = [];
 
 function getWords(number) {
     $.ajax({
-        url: "auth/getWords",
+        url: "account/getWords",
         headers: {
             authorization : `Bearer ${localStorage.token}`,
             numberofwords : number 

@@ -34,10 +34,13 @@ linkSignUp.on('click', () => {
 // Прослушивает форму авторизации
 formOfSignUp.on("submit", (event) => {
     try {
-        $.post("auth/login", {loginNick : event.target[0].value,
-            loginPassword : event.target[1].value},
+        $.post("auth/login", {
+            loginNick : event.target[0].value,
+            loginPassword : event.target[1].value
+            },
             (data) => {
                 localStorage.setItem('token', data.token);
+                localStorage.setItem('LastAuth', Date.now());
                 checkLoginAccount();
                 document.location.href = "././account.html";
             })

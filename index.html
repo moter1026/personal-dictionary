@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="Project for the school DICTIONARY/style/style.css">
     <link rel="stylesheet" href="./style/new word.css">
     <link rel="stylesheet" href="./style/all word.css">
+    <link rel="stylesheet" href="./style/warnings.css">
     <link rel="stylesheet" href="./style/media.css">
     <script src="./node_modules/jquery/dist/jquery.js"></script>
     <title>Personal Dictionary</title>
@@ -22,20 +23,27 @@
     <div id="dark_background">
         <!-- Добавление нового слова -->
         <section class="light_window" id="new_word-window">
+            <div id="warning_havent_values" class="warning">Добавьте хотя бы одно значение для слова!</div>
             <p id="new_word-heading" class="medium_hedings">Новое слово</p>
             <a href="#" class="close_window" id="new_word-close"><img src="img/cansel.svg" alt="Закрыть"></a>
             <h3 id="new_word" class="word_style">word</h3>
 
             <form action="" id="new_word-form" class="form_in_window">
                 <input type="text" id="new_word-form-input_text" class="input_type_text" placeholder="Введите значение слова">
-                <a href="#" id="new_word-form-add-a-value"><img src="img/ok.svg" alt="Добавить значение"></a>
+                <!-- <a href="#" id="new_word-form-add-a-value" message="добавить одно значение"><img src="img/plus (2).svg" alt="Добавить значение"></a> -->
+                <div class="con-tooltip right_tooltip" id="block_for_tooltip">
+                    <a href="#" id="tooltip_link"><img src="img/plus (2).svg" alt="Добавить значение"></a>
+                    <div class="tooltip">
+                        <p>добавить одно значение</p>
+                    </div>
+                </div>
             </form>
             <p id="new_word-meanings_of_the_word">Значения слова:</p>
             <div class="flex_space_between">
                 <div class="word_list" id="new_word-word_list">
                 </div>
                 <div id="new_word-flex_space_between-block_for_button">
-                    <button id="new_word-ready">Готово</button>
+                    <button id="new_word-ready">Сохранить</button>
                 </div>
             </div>
         </section>

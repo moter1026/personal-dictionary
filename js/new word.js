@@ -1,4 +1,4 @@
-const bttnNewValue = $("#new_word-form-add-a-value");
+const bttnNewValue = $("#tooltip_link");
 const buttonReadyAddNewWords = $("#new_word-ready");
 const newWordForm = $("#new_word-form");
     // не изменять на const!!!
@@ -66,8 +66,11 @@ function addValue(value) {
         
     
     function addValueAndResetInput() {
-        $("#new_word-form-input_text")[0].value =
-            addValue($("#new_word-form-input_text")[0].value);
+        if ($("#new_word-form-input_text")[0].value.trim() != "")
+        {
+            $("#new_word-form-input_text")[0].value =
+                addValue($("#new_word-form-input_text")[0].value.trim());
+        }
     }
     bttnNewValue.on('click', addValueAndResetInput);
     newWordForm.on("submit", (event) => {
@@ -81,6 +84,15 @@ function addValue(value) {
         try {
             // document.getElementById("new_word-word_list").childNodes
             let tegsFromWordList = $("#new_word-word_list")[0].children;
+            if (tegsFromWordList.length == 0) {
+                // $("#warning_havent_values")[0].animate({
+                //     // transform: "translateY(100px)",
+                //     opacity: "1"
+                // }, 2400)
+                $("#warning_havent_values").show(600);
+                setTimeout(() => {$("#warning_havent_values").hide(600)}, 2000)
+                throw new Error("Добавьте хотя бы одно значение для слова!");
+            }
             let arrWithTextValuesFromWordList = [];
             for (let i = 0; i < tegsFromWordList.length; i++) {
                 if (arrWithTextValuesFromWordList.
@@ -92,7 +104,7 @@ function addValue(value) {
             console.log(arrWithTextValuesFromWordList);
             // const jsonArr = JSON.stringify(arrWithTextValuesFromWordList);
             $.ajax({
-                url: "auth/newWord",
+                url: "account/newWord",
                 headers: {
                     authorization : `Bearer ${localStorage.token}`,
                     newword: document.getElementById("word").value.toLowerCase(),

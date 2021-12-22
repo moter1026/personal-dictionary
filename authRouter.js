@@ -19,8 +19,6 @@ router.post("/registration",[
 router.post("/login",urlencodedParser, controller.login);
 router.get("/users", roleMiddlewaree(["ADMIN"]), urlencodedParser,  controller.getUsers);
 router.get("/authUser", authMiddlewaree ,urlencodedParser ,controller.authUser);
-router.get("/newWord", authMiddlewaree ,urlencodedParser ,controller.newWord);
-router.get("/getWords", authMiddlewaree ,urlencodedParser ,controller.getWords);
-router.get("/countWords", authMiddlewaree ,urlencodedParser ,controller.countWords)
+
 
 module.exports = router;
