@@ -146,13 +146,14 @@ body {
         width: 600px;
         height: 600px;
         border-radius: 100%;
-        border: 20px solid #DEDEDE;
+        /* border: 20px solid #DEDEDE; */
+        border: 20px solid #b4b4b4;
         background-image: url("/img/dictionary — копия.png");
         background-position: center;
         background-size: 120%;
         background-repeat: no-repeat;
         display: block;
-        position: absolute;
+        position: fixed;
         top: calc(50vh - 320px);
         left: calc(50% - 320px);
         z-index: 0;
