@@ -11,6 +11,18 @@ const windowOfNewWords = $("#new_word-window")[0];
 
 let buttonsClose = $(".close_window");
 
+// Отчещает localstorge чтобы выйти из аккаунта
+function logOut () {
+    localStorage.clear();
+}
+// Проверяет какое кол-во времени авторизован пользователь
+function checkTimeOfAuth () {
+    let dateNow = Date.now();
+    if (dateNow - localStorage.LastAuth > 24*3600*1000 ) {
+        logOut();
+    }
+}
+checkTimeOfAuth();
 // Тёмный фон для всплывающего окна виден
 function visibleDarkBackground() {
     darkBackground.css('display','block');
@@ -18,6 +30,15 @@ function visibleDarkBackground() {
 function hiddenDarkBackground() {
     darkBackground.css('display','none');
 }
+
+
+function warningOrSuccessBlock( jqueryElem ,text) {
+    jqueryElem[0].textContent = text;
+    jqueryElem.show(600)
+    setTimeout(() => {jqueryElem.hide(600)}, 3000)
+}
+
+
     // функция создавалась для того, чтобы
     // предотвратить отправку формы по нажатии на Enter
 function dontSubmit(event) {
@@ -28,12 +49,18 @@ function dontSubmit(event) {
 
 function checkAuth(func) {
     try {
-        if (!localStorage.userName)
+        
+        if (!localStorage.userName){
+            warningOrSuccessBlock($("#warning_main_window"), "Авторизуйтесь для работы с сайтом")
             throw new Error("Авторизуйтесь для работы с сайтом");
-
-        func();
+        } else {
+            func()
+        }
+           
+            // func();
     } catch (e) {
-        return alert(e.name + ": " + e.message);
+        console.log(e.name + ": " + e.message);
+        // return alert(e.name + ": " + e.message);
     }
 }
 

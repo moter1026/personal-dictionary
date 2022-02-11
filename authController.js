@@ -49,7 +49,9 @@ class authController {
     async login (req, res) {
         try {
             // console.log(req.body);
-            const { loginNick, loginPassword } = req.body;
+            let { loginNick, loginPassword } = req.body;
+            loginNick = decodeURI(loginNick);
+            loginPassword = decodeURI(loginPassword);
             const user = await User.findOne({username: loginNick});
             if (!user) {
                 console.log("Пользователь с таким именем не найден, зарегистрируйтесь");

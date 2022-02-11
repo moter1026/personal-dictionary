@@ -150,35 +150,49 @@ header {
     display: flex;
     justify-content:flex-start;
     align-items: center;
+    padding-right: 77px !important;
 }
-.pencil_redact {
+.hover_buttons {
     width: 20px;
     height: 20px;
     display: block;
     position: absolute;
-    right: 12px;
-    bottom: 7px;
-    /* display: none; */
     padding: 5px;
     border-radius: 10px;
     transition: .2s;
+    bottom: 7px;
 }
-.pencil_redact:hover {
+.pencil_redact {
+    right: 47px;
+}
+.delete_button {
+    right: 12px;
+}
+.delete_button:hover {
+    background-color: rgba(211, 103, 103, 0.8) !important;
+}
+.hover_buttons:hover {
     cursor: pointer;
     background-color: rgba(199, 195, 174, 0.8);
 }
-#buttomSaveNewValues {
+.buttonsWhenRedact {
     position: absolute;
-    right: 50px;
     display: block;
     padding: 7px;
-    background-color: rgba(255,128,117, .9);
     height: fit-content;
     text-decoration: none;
     text-transform: uppercase;
     border-radius: 7px;
     color: black;
     font-size: 15px;
+}
+#buttomSaveNewValues {
+    background-color: rgba(156, 255, 117, 0.9);
+    right: 150px;
+}
+#buttonCancel {
+    background-color: rgba(255,128,117, .9);
+    right: 50px;
 }
 #redactWord, #redactValue {
     padding: 7px;

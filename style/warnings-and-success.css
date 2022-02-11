@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+.warning {
+    display: none;
+    position: absolute;
+    opacity: 1;
+    background-color: rgba(255,73,0, .9);
+    border-radius: 20px;
+    width: 60%;
+    left: calc(50% - 30%);
+    /* top: 20%; */
+    padding: 20px 0 ;
+    font-weight: 600;
+    font-size: 17px;
+    /* height: 50px; */
+    top: 12%;
+    text-align: center;
+    z-index: 20;
+}
+/* #warning_havent_values {
+    top: 20%;
+} */
+
+.success {
+    display: none;
+    position: absolute;
+    opacity: 1;
+    background-color: rgba(0, 255, 128, 0.9);
+    border-radius: 20px;
+    width: 60%;
+    left: calc(50% - 30%);
+    /* top: 20%; */
+    padding: 20px 0 ;
+    font-weight: 600;
+    font-size: 17px;
+    /* height: 50px; */
+    top: 12%;
+    text-align: center;
+    z-index: 20;
+}

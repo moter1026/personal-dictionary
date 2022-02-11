@@ -68,10 +68,13 @@ CloseAllWord.on('click', closeWindowOfAllWords);
 
     // __________Добавляем слушатели на кнопки__________
 linkAllWords.on('click', () => {
-    if (openedAllWords != true) getWords(10);
-    visibleDarkBackground();
-    allWordWindow.css('display','block');
-    console.log(arrObjectsOfWordsInBrowser);
+    checkAuth(() => {
+        linkAllWords.attr("href", "account.html");
+    })
+    // if (openedAllWords != true) getWords(10);
+    // visibleDarkBackground();
+    // allWordWindow.css('display','block');
+    // console.log(arrObjectsOfWordsInBrowser);
 })
 
 

@@ -1,3 +1,0 @@
-function logOut () {
-    localStorage.clear();
-}

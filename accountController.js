@@ -149,5 +149,32 @@ class accountController {
             console.log(err);
         }
     }
+
+    async deleteWord (req, res) {
+        try {
+            console.log(req.headers);
+            let {deleteword} = req.headers;
+            deleteword = decodeURI(deleteword);
+            let UserData = await User.findById(req.user.id);
+            // console.log(UserData.words);
+            console.log("1. - сюды захожу");
+            let index = UserData.words.indexOf(deleteword);
+            console.log(deleteword);
+            if (index != -1) {
+                UserData.words.splice(index, 2)
+            }
+            // for (let i = 0; i < UserData.words.length; i+=2) {
+            //     if (UserData.words[i] == deleteword) {
+            //         console.log(UserData.words.splice(i, 2));
+            //         break;
+            //     } 
+            // }
+            // console.log(UserData.words);
+            UserData.save();
+            res.json("слово удалено!")
+        } catch (err) {
+            console.log(err);
+        }
+    }
 }
 module.exports = new accountController;

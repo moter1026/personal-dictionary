@@ -14,8 +14,9 @@ function haveContent(value) {
 function addNewWord () {
     let word = $("#word")[0].value;
     check = haveContent(word);
-    if( check == 0) 
+    if( check == 0) {
         throw new Error("Введите слово, значения к которому вы хотите добавить!!!");
+    }
     console.log(word);
     let newWord = $("#new_word");
     newWord[0].textContent = word;

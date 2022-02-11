@@ -1,9 +1,9 @@
 const linkRegistr = $("#link_of_registration");         // На странице с авторизацией
-const linkSignUp = $("#link_of_sign_up");               // На странице с регистрацией
-const pageOfSignUp = $("#Sign_Up");                     // Страница авторизации
+const linkLogIn = $("#link_of_log_in");               // На странице с регистрацией
+const pageOfLogIn = $("#Log_in");                     // Страница авторизации
 const pageOfRegistration = $("#register");              // Страница регистрации
 const formOfRegister = $("#form_of_registration");      // Форма регистрации
-const formOfSignUp = $("#form_of_sign_up");             // Форма авторизации
+const formOfLogIn = $("#form_of_log_in");             // Форма авторизации
 
 
 // Функция проверяет авторизован ли пользователь или нет
@@ -22,21 +22,33 @@ function checkLoginAccount () {
     })
 }
 
-linkRegistr.on('click', () => {
-    pageOfSignUp.attr('class', 'none');
-    pageOfRegistration.attr('class', 'block');
-})
-linkSignUp.on('click', () => {
+// function warningOrSuccessBlock( jqueryElem ,text) {
+//     jqueryElem[0].textContent = text;
+//     jqueryElem.show(600)
+//     setTimeout(() => {jqueryElem.hide(600)}, 3000)
+// }
+function openLogInWindow() {
     pageOfRegistration.attr('class', 'none');
-    pageOfSignUp.attr('class', 'block');
+    pageOfLogIn.attr('class', 'block');
+}
+function openRegisterWindow() {
+    pageOfLogIn.attr('class', 'none');
+    pageOfRegistration.attr('class', 'block');
+}
+
+linkRegistr.on('click', () => {
+    openRegisterWindow()
+})
+linkLogIn.on('click', () => {
+    openLogInWindow()
 })
 
 // Прослушивает форму авторизации
-formOfSignUp.on("submit", (event) => {
+formOfLogIn.on("submit", (event) => {
     try {
         $.post("auth/login", {
-            loginNick : event.target[0].value,
-            loginPassword : event.target[1].value
+            loginNick : encodeURI(event.target[0].value),
+            loginPassword : encodeURI(event.target[1].value)
             },
             (data) => {
                 localStorage.setItem('token', data.token);
@@ -45,6 +57,7 @@ formOfSignUp.on("submit", (event) => {
                 document.location.href = "././account.html";
             })
             .fail((data) => {
+                warningOrSuccessBlock($("#warning_register_or_login"), data.responseJSON.message)
                 console.log(data.responseJSON.message);
             });;
     } catch (error) {
@@ -63,11 +76,15 @@ formOfRegister.on("submit", (event) => {
                 registrPassword: event.target[1].value},
                 (data) => {
                     console.log(data);
+                    warningOrSuccessBlock($("#success_register_or_login"), data.message);
+                    openLogInWindow();
                 })
                 .fail((data) => {
+                    warningOrSuccessBlock($("#warning_register_or_login"), data.responseJSON.message)
                     console.log(data.responseJSON.message);
                 })
         }else {
+            warningOrSuccessBlock( $("#warning_register_or_login"), 'Пароли не совпадают');
             throw new Error('Пароли не совпадают')
         }
         

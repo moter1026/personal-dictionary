@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/warnings-and-success.css">
     <link rel="stylesheet" href="./style/sign up or register/style-Reg.css">
     <script src="./node_modules/jquery/dist/jquery.js"></script>
     <title>Document</title>
@@ -13,13 +14,13 @@
     <div class="background_book"></div>
     <!-- <a href="#" id="redactor_link">Редактировать профиль</a> -->
     <div id="block_redactor_and_home"><a href="./index.html"><img src="./img/home.svg" alt="Главная страница"></a></div>
-    <div id="error_register_or_login"></div>
-            
+    <div class="warning" id="warning_register_or_login"></div>
+    <div class="success" id="success_register_or_login"></div>  
     
             <!-- Авторизация -->
-    <div id="Sign_Up" class="block">
+    <div id="Log_in" class="block">
         <p class="heading_reg_sign_up_and_other">Авторизация</p>
-        <form id="form_of_sign_up" name="form_of_sign_up">
+        <form id="form_of_log_in" name="form_of_log_in">
             <!-- action="auth/login" -->
             <div class="flex flex_in_form">
                 <div class="text_left">Никнейм:</div>
@@ -54,12 +55,9 @@
             </div>
             <input id="registerSubmit" name="registerSubmit" type="submit" value="Зарегистрироваться">
         </form>
-        <a href="#" id="link_of_sign_up" >Авторизация</a>
+        <a href="#" id="link_of_log_in" >Авторизация</a>
     </div>
+    <script src="js/main.js"></script>
     <script src="./js/sign up or register/sign Up, register.js"></script>
-    <!-- <script>
-        let errorBlock = $("#error_register_or_login");
-        errorBlock.prepend(`<p>${ErrorText}</p>`);
-    </script> -->
 </body>
 </html>
