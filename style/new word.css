@@ -127,6 +127,7 @@
 
 #new_word-word_list {
     width: 700px;
+    padding: 20px;
     height: 420px;
     overflow-y: scroll;
     display: flex;

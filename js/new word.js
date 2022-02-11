@@ -90,7 +90,7 @@ function addValue(value) {
                 //     opacity: "1"
                 // }, 2400)
                 $("#warning_havent_values").show(600);
-                setTimeout(() => {$("#warning_havent_values").hide(600)}, 2000)
+                setTimeout(() => {$("#warning_havent_values").hide(600)}, 3000)
                 throw new Error("Добавьте хотя бы одно значение для слова!");
             }
             let arrWithTextValuesFromWordList = [];
