@@ -5,6 +5,7 @@ const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 const {secret} = require("./config");
 const { db } = require("./models/Role");
+const { load } = require("nodemon/lib/config");
 
 
 function WordObj(mainWord, values) {
@@ -24,7 +25,7 @@ function getAndSortAllWords (user){
     }
     // console.log(arrOfObjects);
     let sortWords = arrOfObjects.sort(sortWord);
-    console.log(sortWords);
+    // console.log(sortWords);
     function sortWord(x, y) {
         if (x.word < y.word) {return -1;}
         if (x.word > y.word) {return 1;}
@@ -40,17 +41,22 @@ class accountController {
                     // Достаём из запроса новое слово и его значения
             let {newword, wordvalues} = req.headers;
                     // Выполняем декодирование русскийх слов
-            wordvalues = decodeURI(wordvalues);
-            console.log("1-ый вывод" + wordvalues);
+            wordvalues = decodeURI(wordvalues).split(",");
+            wordvalues = wordvalues.join(", ");
+
+            console.log(wordvalues);
+            newword = decodeURI(newword);
+            // console.log("1-ый вывод" + wordvalues);
                     // Находим нужного пользователя
             let UserData = await User.findById(req.user.id);
+
                     // Вставляем новое слово, а затем его значения за ним.
                     // Массив будет устроен так, что чётным индексом будет 
                     // идти слово, а нечётным значения к нему.
             if (UserData.words.indexOf(newword) != -1) {
                 let elIndex = UserData.words.indexOf(newword);
-                let BDArr = UserData.words[elIndex + 1].split(",");
-                let wordvaluesArr = wordvalues.split(",");
+                let BDArr = UserData.words[elIndex + 1].split(", ");
+                let wordvaluesArr = wordvalues.split(", ");
                 BDArr.forEach(el => {
                     let resultSearch = wordvaluesArr.indexOf(el);
                     if (resultSearch != -1) wordvaluesArr.splice(resultSearch, 1);
@@ -65,22 +71,43 @@ class accountController {
             } else {
                 UserData.words.push(newword);
                 UserData.words.push(wordvalues);
-                console.log(UserData.words);
-                console.log("2-ой вывод"+ wordvalues);
+                // console.log(UserData.words);
+                // console.log("2-ой вывод"+ wordvalues);
                         // Сщхраняем изменения в коллекции
                 UserData.save();
-                console.log("Всё оК");
+                // console.log("Всё оК");
                 res.json("Всё прошло успешно!");
             }
         } catch (err) {
             console.log(err);
         }
     }
+
+    async redact (req, res) {
+        try {
+            let UserData = await User.findById(req.user.id);
+            let redactWord = decodeURI(req.headers.redactword);
+            let redactValues = decodeURI(req.headers.redactvalues);
+            for (let i = 0; i < UserData.words.length; i+=2) {
+                console.log(UserData.words[i]);
+                if (UserData.words[i] == redactWord) {
+                    UserData.words[i] = redactWord;
+                    UserData.words[i+1] = redactValues;
+                    break;
+                }
+            }
+            UserData.save()
+            res.json("ВСё прошло успешно")
+        } catch (err) {
+            console.log(err);
+        }
+    }
+     
     async getWords (req, res) {
         try {
             // console.log(req.headers);
             let UserData = await User.findById(req.user.id);
-            console.log(req.headers.numberofwords);
+            // console.log(req.headers.numberofwords);
             let number = req.headers.numberofwords;
             let arrObjectsOfWords = [];
             

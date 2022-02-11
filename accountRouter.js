@@ -11,6 +11,8 @@ const urlencodedParser = bodyParser.urlencoded({
 
 
 router.get("/newWord", authMiddlewaree ,urlencodedParser ,controller.newWord);
+router.get('/redact', authMiddlewaree, urlencodedParser ,controller.redact);
+// router.get("/redactWords", controller.redactWords);
 router.get("/getWords", authMiddlewaree ,urlencodedParser ,controller.getWords);
 router.get("/getAllWords", authMiddlewaree ,urlencodedParser ,controller.getAllWords);
 router.get("/countWords", authMiddlewaree ,urlencodedParser ,controller.countWords);

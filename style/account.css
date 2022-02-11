@@ -11,6 +11,7 @@ body {
     padding-top: 50px;
     box-sizing: border-box;
     font-family: "Montserrat";
+    color: black;
 }
 header {
     width: 100%;
@@ -144,6 +145,12 @@ header {
     background-color: rgba(245,240,214, .8);
     /* cursor: pointer; */
 }
+.tdBlockWithValues {
+    position: relative;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
 .pencil_redact {
     width: 20px;
     height: 20px;
@@ -159,6 +166,25 @@ header {
 .pencil_redact:hover {
     cursor: pointer;
     background-color: rgba(199, 195, 174, 0.8);
+}
+#buttomSaveNewValues {
+    position: absolute;
+    right: 50px;
+    display: block;
+    padding: 7px;
+    background-color: rgba(255,128,117, .9);
+    height: fit-content;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 7px;
+    color: black;
+    font-size: 15px;
+}
+#redactWord, #redactValue {
+    padding: 7px;
+    border-radius: 5px;
+    height: fit-content;
+    border: 0;
 }
 
 #log-out {
