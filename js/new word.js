@@ -4,6 +4,9 @@ const newWordForm = $("#new_word-form");
     // не изменять на const!!!
 let blockNewValues = $("#new_word-word_list");
 let word = $("#word");
+// При загрузке страницы сразу устанавливаю фокус
+// на инпут ввода слов
+word[0].focus();
 
 function haveContent(value) {
     if (value.length == 0 || !value.trim()) {
@@ -28,7 +31,13 @@ function addNewWord () {
 
 
 function addValue(value) {
-    let htmlText = `<p>${value}</p>`;
+    let arrValues = value.split(",");
+    let htmlText = "";
+    for (let i = 0; i < arrValues.length; i++) {
+        arrValues[i] = arrValues[i].trim();
+        htmlText += `<p>${arrValues[i]}</p>`;
+    }
+    // let htmlText = `<p>${value}</p>`;
     blockNewValues.prepend(htmlText);
     return "";
 }
@@ -54,13 +63,6 @@ function addValue(value) {
     })
 
     // Код для закрытия окна по нижитию на Escape находится в main.js
-    function closeWindowOfNewWords () {
-        hiddenDarkBackground();
-        newWordWindow.css('display','none');
-        $("#word")[0].value = "";
-        $("#new_word-form-input_text")[0].value = "";
-        $("#new_word-word_list")[0].innerHTML = "";
-    }
     ClosePlus.on('click', closeWindowOfNewWords);
     
         //--------------------
@@ -86,10 +88,6 @@ function addValue(value) {
             // document.getElementById("new_word-word_list").childNodes
             let tegsFromWordList = $("#new_word-word_list")[0].children;
             if (tegsFromWordList.length == 0) {
-                // $("#warning_havent_values")[0].animate({
-                //     // transform: "translateY(100px)",
-                //     opacity: "1"
-                // }, 2400)
                 $("#warning_havent_values").show(600);
                 setTimeout(() => {$("#warning_havent_values").hide(600)}, 3000)
                 throw new Error("Добавьте хотя бы одно значение для слова!");

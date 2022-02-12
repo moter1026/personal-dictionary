@@ -1,5 +1,4 @@
 const darkBackground = $("#dark_background");   // Тёмный фон
-
 const bttnPlus = $("#button_plus>img");         // картинка плюс(она же кнопка)
 const newWordWindow = $("#new_word-window");    // Окно добавления нового слова
 const CloseAllWord = $("#all_word-close");
@@ -23,6 +22,8 @@ function checkTimeOfAuth () {
     }
 }
 checkTimeOfAuth();
+
+
 // Тёмный фон для всплывающего окна виден
 function visibleDarkBackground() {
     darkBackground.css('display','block');
@@ -39,8 +40,8 @@ function warningOrSuccessBlock( jqueryElem ,text) {
 }
 
 
-    // функция создавалась для того, чтобы
-    // предотвратить отправку формы по нажатии на Enter
+// функция создавалась для того, чтобы
+// предотвратить отправку формы по нажатии на Enter
 function dontSubmit(event) {
     event.preventDefault();
     return false;
@@ -49,18 +50,14 @@ function dontSubmit(event) {
 
 function checkAuth(func) {
     try {
-        
         if (!localStorage.userName){
             warningOrSuccessBlock($("#warning_main_window"), "Авторизуйтесь для работы с сайтом")
             throw new Error("Авторизуйтесь для работы с сайтом");
         } else {
             func()
         }
-           
-            // func();
     } catch (e) {
         console.log(e.name + ": " + e.message);
-        // return alert(e.name + ": " + e.message);
     }
 }
 
@@ -88,5 +85,23 @@ document.addEventListener("keydown", (event) => {
         console.log(err);
     }
 });
+function closeWindowOfNewWords () {
+    hiddenDarkBackground();
+    newWordWindow.css('display','none');
+    $("#word")[0].value = "";
+    $("#new_word-form-input_text")[0].value = "";
+    $("#new_word-word_list")[0].innerHTML = "";
+    $("#word")[0].focus();
+}
+// При нажатии на затемнённый фон всплывающее окно закроется
+darkBackground.on("click", (ev) => {
+    ev.preventDefault();
+    closeWindowOfNewWords()
+})
+
+// Прекращение всплытия события дальше, всплавающего окна
+newWordWindow.on("click", (ev) => {
+    ev.stopPropagation();
+})
 
 

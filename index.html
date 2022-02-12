@@ -25,12 +25,16 @@
         <!-- Добавление нового слова -->
         <section class="light_window" id="new_word-window">
             <div id="warning_havent_values" class="warning">Добавьте хотя бы одно значение для слова!</div>
+            <div class="warningWithAnswer"> Вы написали в поле для ввода значение слова, но не добавили к остальным.<br />
+                                            Чтобы не потерять его, нажмите на кнопку "Назад" и на кнопку в виде плюса или "Enter". 
+                                            <span>При нажатии кнопки "Далее" значение не сохранится</span></div>
             <p id="new_word-heading" class="medium_hedings">Новое слово</p>
             <a href="#" class="close_window" id="new_word-close"><img src="img/cansel.svg" alt="Закрыть"></a>
             <h3 id="new_word" class="word_style">word</h3>
 
             <form action="" id="new_word-form" class="form_in_window">
-                <input type="text" id="new_word-form-input_text" class="input_type_text" placeholder="Введите значение слова">
+                <input  type="text" id="new_word-form-input_text" class="input_type_text"
+                        placeholder="Введите значение слова через запятую" autocomplete="off">
                 <!-- <a href="#" id="new_word-form-add-a-value" message="добавить одно значение"><img src="img/plus (2).svg" alt="Добавить значение"></a> -->
                 <div class="con-tooltip-for-button right_tooltip-for-button" id="block_for_tooltip">
                     <a href="#" id="tooltip_link-for-button"><img src="img/plus (2).svg" alt="Добавить значение"></a>
@@ -106,7 +110,9 @@
     <div class="absolute" id="block_for-form_of_adding_new_word">
         <form action="" id="form_of_adding_new_word">
             <div class="con-tooltip-for-input right_tooltip-for-input" id="block_for_tooltip">
-                <input type="text" name="word" id="word" id="tooltip_link-for-input" class="transition_04s select_a_text_none" placeholder="Введите новое слово">
+                <input  type="text" name="word" id="word" id="tooltip_link-for-input"
+                        class="transition_04s select_a_text_none" placeholder="Введите новое слово"
+                        autocomplete="off">
                 <!-- <a href="#" id="tooltip_link"><img src="img/plus (2).svg" alt="Добавить значение"></a> -->
                 <div class="tooltip-for-input">
                     <p>Введите слово, которое хотели бы запомнить.</p>

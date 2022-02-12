@@ -126,6 +126,7 @@
 }
 
 #new_word-word_list {
+    box-sizing: border-box;
     width: 700px;
     padding: 20px;
     height: 420px;

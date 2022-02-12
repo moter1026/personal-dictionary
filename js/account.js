@@ -1,4 +1,5 @@
 const divForLogOut = $("#log-out");
+let buttonOfAddingNewWords = $("#add-new-words");
 
 // Проверяет какое кол-во времени авторизован пользователь
 checkTimeOfAuth();
@@ -39,6 +40,7 @@ function countWords() {
 }
 countWords();
 
+// Функция "достаёт" все слова из базы данных
 function getAllWords() {
     try {
         $.get({
@@ -58,8 +60,8 @@ function getAllWords() {
                 $("#table_with_all_words > tbody").append(toHTML);
 
                 let rowEl = document.querySelectorAll("#table_with_all_words tbody tr"); // $("#table_with_all_words tbody tr")
-                let $pencilRedact = $(`<img src="./img/pencil.svg" class="pencil_redact hover_buttons" id="pencil_redact">`);
-                let $deletebutton = $(`<img src="./img/delete.svg" class="delete_button hover_buttons" id="delete_button">`);
+                let $pencilRedact = $(`<img src="./img/pencil.svg" title="редактировать" class="pencil_redact hover_buttons" id="pencil_redact">`);
+                let $deletebutton = $(`<img src="./img/delete.svg" title="Удалить" class="delete_button hover_buttons" id="delete_button">`);
                 for (let i = 0; i < rowEl.length; i++) {
                     rowEl[i].addEventListener("mouseenter", (event) => {
                         let tr = event.target; // .parentElement
@@ -69,81 +71,13 @@ function getAllWords() {
                         }
                     })                    
                 }
-
                 $pencilRedact.on("click", (ev) => {
-                    let tr = ev.target.parentElement.parentElement;
-                    let word = tr.children[0].textContent;
-                    let values = tr.children[1].textContent;
-                    tr.children[1].textContent = '';
-                        // Если есть уже инпуты для редактированияЮ то удалить его и 
-                        // вставить новые для нужного слова
-                    if ($("#redactWord")[0]) {
-                        let valuesFromInput = $("#redactValue")[0].value;
-                        let parentTR = $("#redactWord")[0].parentElement.parentElement;
-                        $("#redactValue")[0].remove();
-                        parentTR.children[1].textContent = valuesFromInput;
-                    }
-                    tr.children[1].append($(`<textarea name="redactValue" id="redactValue" cols="40">${values}</textarea>`)[0]);
-                    tr.children[1].append($(`<a id="buttomSaveNewValues" class="buttonsWhenRedact" href="javascript:void(0);">Сохранить</a>`)[0]);
-                    tr.children[1].append($(`<a id="buttonCancel" class="buttonsWhenRedact" href="javascript:void(0);">Отмена</a>`)[0]);
-                    let buttomSaveNewValues = $("#buttomSaveNewValues");
-                    let buttonCancel = $("#buttonCancel");
-
-                    buttomSaveNewValues.on("click", () => {
-                        let valuesFromInput = $("#redactValue")[0].value.toLowerCase();
-
-                        $.get({
-                            url: 'account/redact',
-                            headers: {
-                                authorization : `Bearer ${localStorage.token}`,
-                                redactword: encodeURI(word),
-                                redactvalues: encodeURI(valuesFromInput)
-                            },
-                            success: (data) => {
-                                console.log(data.message);
-                            }
-                        });
-
-                        $("#redactValue")[0].remove();
-                        tr.children[1].textContent = valuesFromInput;
-                    });
-                    buttonCancel.on("click", () => {
-                        $("#redactValue")[0].remove();
-                        tr.children[1].textContent = values;
-                    })
+                    redactOfWords(ev);
                 });
 
                 $deletebutton.on("click", (ev) => {
-                    let tr = ev.target.parentElement.parentElement;
-                    tr.remove();
-                    let word = tr.children[0].textContent;
-                    $.get({
-                        url: "account/deleteWord",
-                        headers: {
-                            authorization : `Bearer ${localStorage.token}`,
-                            deleteword: encodeURI(word)
-                        },
-                        success: (data) => {
-                            warningOrSuccessBlock($("#success-in-account"), data);
-                            let count = $("#count_words-count")[0].textContent.split(' ')[0] - 1;
-                            let textToHtml = '';
-                            if (count == 1) {
-                                textToHtml += `${count} слово`
-                            } else if ( 2 <= count &
-                                        count <= 4  ) {
-                                textToHtml += `${count} слова`
-                            } else if ( (5 <= count & 
-                                        count <= 9) || 
-                                        count == 0) {
-                                textToHtml += `${count} слов`
-                            }
-                            $("#count_words-count")[0].textContent = textToHtml;
-                        }
-                    });
-                    
+                    deleteWord(ev);
                 })
-
-
                 for (let i = 0; i < rowEl.length; i++) {
                     rowEl[i].addEventListener("mouseleave", (event) => {
                         let tr = event.target;
@@ -160,6 +94,108 @@ function getAllWords() {
     }
 }
 getAllWords()
+
+// Удаляет слово из Базы данных и убирает со страницы
+function deleteWord(ev) {
+    let tr = ev.target.parentElement.parentElement;
+    tr.remove();
+    let word = tr.children[0].textContent;
+    $.get({
+        url: "account/deleteWord",
+        headers: {
+            authorization : `Bearer ${localStorage.token}`,
+            deleteword: encodeURI(word)
+        },
+        success: (data) => {
+            warningOrSuccessBlock($("#success-in-account"), data);
+            let count = $("#count_words-count")[0].textContent.split(' ')[0] - 1;
+            let textToHtml = '';
+            if (count == 1) {
+                textToHtml += `${count} слово`
+            } else if ( 2 <= count &
+                        count <= 4  ) {
+                textToHtml += `${count} слова`
+            } else if ( (5 <= count & 
+                        count <= 9) || 
+                        count == 0) {
+                textToHtml += `${count} слов`
+            }
+            $("#count_words-count")[0].textContent = textToHtml;
+        }
+    });
+}
+
+// Редактирует значения для слова и посылает запрос на сервер 
+// для сохранения изменений в базе данных
+function redactOfWords(ev) {
+    let tr = ev.target.parentElement.parentElement;
+    let word = tr.children[0].textContent;
+    let values = tr.children[1].textContent;
+    tr.children[1].textContent = '';
+        // Если есть уже инпуты для редактированияЮ то удалить его и 
+        // вставить новые для нужного слова
+    if ($("#redactWord")[0]) {
+        let valuesFromInput = $("#redactValue")[0].value;
+        let parentTR = $("#redactWord")[0].parentElement.parentElement;
+        $("#redactValue")[0].remove();
+        parentTR.children[1].textContent = valuesFromInput;
+    }
+    tr.children[1].append($(`<textarea name="redactValue" id="redactValue" cols="40">${values}</textarea>`)[0]);
+    tr.children[1].append($(`<a id="buttomSaveNewValues" class="buttonsWhenRedact" href="javascript:void(0);">Сохранить</a>`)[0]);
+    tr.children[1].append($(`<a id="buttonCancel" class="buttonsWhenRedact" href="javascript:void(0);">Отмена</a>`)[0]);
+    let buttomSaveNewValues = $("#buttomSaveNewValues");
+    let buttonCancel = $("#buttonCancel");
+
+    buttomSaveNewValues.on("click", () => {
+        let valuesFromInput = $("#redactValue")[0].value.toLowerCase();
+
+        $.get({
+            url: 'account/redact',
+            headers: {
+                authorization : `Bearer ${localStorage.token}`,
+                redactword: encodeURI(word),
+                redactvalues: encodeURI(valuesFromInput)
+            },
+            success: (data) => {
+                console.log(data.message);
+            }
+        });
+
+        $("#redactValue")[0].remove();
+        tr.children[1].textContent = valuesFromInput;
+    });
+    buttonCancel.on("click", () => {
+        $("#redactValue")[0].remove();
+        tr.children[1].textContent = values;
+    })
+}
+
+// Фиксирует положения кнопки добавления новых слов
+function absoluteFixButtonPlus() {
+    let coordsOfTable = $("#table_with_all_words")[0].getBoundingClientRect();
+    buttonOfAddingNewWords.css({
+        "top": `${coordsOfTable.top + window.pageYOffset + 5}px`,
+        "position": "absolute"
+    })
+}
+absoluteFixButtonPlus()
+document.addEventListener("scroll", () => {
+    if ($("#table_with_all_words")[0].getBoundingClientRect().top <= 50) {
+        buttonOfAddingNewWords.css({
+            "position": "fixed",
+            "top": "50px"
+        })
+    }
+    if ($("#table_with_all_words")[0].getBoundingClientRect().top > 50) {
+        absoluteFixButtonPlus();
+    }
+})
+buttonOfAddingNewWords.on("click", () => {
+    document.location.href = "./index.html";
+})
+
+
+
 
 // Слушатель события на ктопку выхода из аккаунта
 divForLogOut.on("click", () => {
