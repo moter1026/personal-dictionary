@@ -1,4 +1,4 @@
-const bttnNewValue = $("#tooltip_link");
+const bttnNewValue = $("#tooltip_link-for-button");
 const buttonReadyAddNewWords = $("#new_word-ready");
 const newWordForm = $("#new_word-form");
     // не изменять на const!!!

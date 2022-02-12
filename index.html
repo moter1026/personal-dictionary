@@ -32,9 +32,9 @@
             <form action="" id="new_word-form" class="form_in_window">
                 <input type="text" id="new_word-form-input_text" class="input_type_text" placeholder="Введите значение слова">
                 <!-- <a href="#" id="new_word-form-add-a-value" message="добавить одно значение"><img src="img/plus (2).svg" alt="Добавить значение"></a> -->
-                <div class="con-tooltip right_tooltip" id="block_for_tooltip">
-                    <a href="#" id="tooltip_link"><img src="img/plus (2).svg" alt="Добавить значение"></a>
-                    <div class="tooltip">
+                <div class="con-tooltip-for-button right_tooltip-for-button" id="block_for_tooltip">
+                    <a href="#" id="tooltip_link-for-button"><img src="img/plus (2).svg" alt="Добавить значение"></a>
+                    <div class="tooltip-for-button">
                         <p>добавить одно значение</p>
                     </div>
                 </div>
@@ -49,16 +49,16 @@
             </div>
         </section>
         <!-- Поиск новых слов -->
-        <section class="light_window" id="all_word_window">
+        <!-- <section class="light_window" id="all_word_window">
             <p id="all_word-heading"class="medium_hedings">Поиск</p>
             <form action="" id="all_word-form" >
                 <div class="form_in_window" id="form_in_all_word_window">
                     <input type="text" id="all_word-form-input_text" class="input_type_text" placeholder="Какое слово вы хотите найти">
                     <a href="#" id="all_word-form-search-a-value"><img src="img/search icon.svg" alt="Добавить значение"></a>
-                </div>
+                </div> -->
                 <!-- <a href="" class="variant_of_search variant_of_search_checked" id="variant_of_search-from_Russian">русский - английский</a>
                 <a href="" class="variant_of_search" id="variant_of_search-from_Inglish">английский - русский</a> -->
-            </form>
+            <!-- </form>
             <a href="#" class="close_window" id="all_word-close"><img src="img/cansel.svg" alt="Закрыть"></a>
             <div id="all_word-main_searching_content_flex">
                 <div>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="word_list" id="all_word-word_list"></div>
             </div>
-        </section>
+        </section> -->
 
     </div>
     <p id="heading" class="transition_04s select_a_text_none pointer_ivents_none">Your personal dictionary</p>
@@ -105,7 +105,14 @@
     </a> -->
     <div class="absolute" id="block_for-form_of_adding_new_word">
         <form action="" id="form_of_adding_new_word">
-            <input type="text" name="word" id="word" class="transition_04s select_a_text_none" placeholder="Введите новое слово">
+            <div class="con-tooltip-for-input right_tooltip-for-input" id="block_for_tooltip">
+                <input type="text" name="word" id="word" id="tooltip_link-for-input" class="transition_04s select_a_text_none" placeholder="Введите новое слово">
+                <!-- <a href="#" id="tooltip_link"><img src="img/plus (2).svg" alt="Добавить значение"></a> -->
+                <div class="tooltip-for-input">
+                    <p>Введите слово, которое хотели бы запомнить.</p>
+                    <p>Затем нажмите на плюс.</p>
+                </div>
+            </div>
             <a id="button_plus" class="transition_04s select_a_text_none"><img src="img/plus.svg" alt="Добавить" ></a>
         </form>
     </div>

@@ -44,15 +44,15 @@
     border-radius: 30px;
 } */
 
-.con-tooltip {
+.con-tooltip-for-button {
     position: relative;
     display: inline-block;
     transition: all 0.3s ease-in-out;
     cursor: default;
-    height: 48px;
-    width: 48px;
+    height: 37px;
+    width: 37px;
 }
-.tooltip {
+.tooltip-for-button {
     visibility: hidden;
     z-index: 1;
     opacity: .40;
@@ -70,7 +70,7 @@
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 3px rgba(56, 54, 54, 0.86);
 }
-.tooltip::after {
+.tooltip-for-button::after {
     content: " ";
     width: 0;
     height: 0;
@@ -81,7 +81,7 @@
     position: absolute;
     left: 30%;
 }
-.con-tooltip:hover .tooltip{
+.con-tooltip-for-button:hover .tooltip-for-button{
     visibility: visible;
     transform: translateY(-10px);
     opacity: 1;
@@ -99,18 +99,18 @@
     }
   
   }
-#tooltip_link {
+#tooltip_link-for-button {
     box-sizing: border-box;
 }
-#tooltip_link > img {
+#tooltip_link-for-button > img {
     width: 100%;
     height: 100%;
 }
-/* .right_tooltip:hover {transform: translateX(6px); } */
+/* .right_tooltip-for-button:hover {transform: translateX(6px); } */
 
-.right_tooltip .tooltip { top:-20%; left:115%; }
+.right_tooltip-for-button .tooltip-for-button { top:-20%; left:117%; }
 
-.right_tooltip .tooltip::after{
+.right_tooltip-for-button .tooltip-for-button::after{
   top:38%;
   left:-8%;
   transform: rotate(90deg);
