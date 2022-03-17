@@ -10,7 +10,7 @@ const windowOfNewWords = $("#new_word-window")[0];
 
 let buttonsClose = $(".close_window");
 
-// Отчещает localstorge чтобы выйти из аккаунта
+// Отчищает localstorge чтобы выйти из аккаунта
 function logOut () {
     localStorage.clear();
 }

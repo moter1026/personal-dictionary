@@ -20,6 +20,7 @@ function checkLoginAccount () {
             console.log(localStorage);      
         }
     })
+    return false;
 }
 
 // function warningOrSuccessBlock( jqueryElem ,text) {
@@ -54,6 +55,7 @@ formOfLogIn.on("submit", (event) => {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('LastAuth', Date.now());
                 checkLoginAccount();
+                setTimeout(() => {}, 100)
                 document.location.href = "././account.html";
             })
             .fail((data) => {
