@@ -55,8 +55,8 @@ formOfLogIn.on("submit", (event) => {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('LastAuth', Date.now());
                 checkLoginAccount();
-                setTimeout(() => {}, 1000)
-                document.location.href = "././account.html";
+                setTimeout(() => {document.location.href = "././account.html";}, 1000)
+                
             })
             .fail((data) => {
                 warningOrSuccessBlock($("#warning_register_or_login"), data.responseJSON.message)
