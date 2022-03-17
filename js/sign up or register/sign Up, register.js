@@ -55,7 +55,7 @@ formOfLogIn.on("submit", (event) => {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('LastAuth', Date.now());
                 checkLoginAccount();
-                setTimeout(() => {document.location.href = "././account.html";}, 1000)
+                setTimeout(() => {document.location.href = "././account.html";}, 500)
                 
             })
             .fail((data) => {
